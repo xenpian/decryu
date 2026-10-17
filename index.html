@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DeCry</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="title-bar">
+        <div class="title-left">
+            <span class="icon"></span>
+            <span>DeCry </span>
+        </div>
+        <div class="close-btn" onclick="window.close()">X</div>
+    </div>
+
+    <div class="main-content">
+        <div class="left-panel">
+            <div class="lock-icon-wrapper">
+                <div class="lock-inner-bg">
+                    <img src="lock.png" alt="Lock Icon">
+                </div>
+            </div>
+
+            <div class="timer-box">
+                <div class="timer-progress-bar">
+                    <div class="timer-progress-fill" id="progress1"></div>
+                </div>
+                <div class="timer-title" data-i18n="payment_raised_on">Payment will be raised on</div>
+                <div class="timer-date" id="timer1-date">5/16/2017 00:47:55</div>
+                <div class="timer-label" data-i18n="time_left">Time Left</div>
+                <div class="timer-countdown" id="countdown1">02:23:57:37</div>
+            </div>
+
+            <div class="timer-box">
+                <div class="timer-progress-bar">
+                    <div class="timer-progress-fill" id="progress2"></div>
+                </div>
+                <div class="timer-title" data-i18n="files_lost_on">Your files will be lost on</div>
+                <div class="timer-date" id="timer2-date">5/20/2017 00:47:55</div>
+                <div class="timer-label" data-i18n="time_left">Time Left</div>
+                <div class="timer-countdown" id="countdown2">06:23:57:37</div>
+            </div>
+
+            <div class="links-section">
+                <a href="#" onclick="openCryptoSite('https://bitcoin.org/en/faq'); return false;"
+                    data-i18n="about_bitcoin">About bitcoin</a>
+                <a href="#" onclick="openCryptoSite('https://bitcoin.org/en/buy'); return false;"
+                    data-i18n="how_to_buy">How to buy
+                    bitcoins?</a>
+                <a href="#" onclick="openDecryChat(); return false;" data-i18n="contact_us">Contact Us</a>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="header-banner">
+                <h1 data-i18n="ooops">Ooops, your files have been encrypted!</h1>
+                <select class="language-select">
+                    <option value="en">English</option>
+                    <option value="tr">Türkçe</option>
+                    <option value="es">Español</option>
+                    <option value="de">Deutsch</option>
+                </select>
+            </div>
+
+            <div class="info-content">
+                <h2 data-i18n="what_happened_title">What Happened to My Computer?</h2>
+                <p data-i18n="what_happened_p1">Your important files are encrypted.</p>
+                <p data-i18n="what_happened_p2">Many of your documents, photos, videos, databases and other files are no
+                    longer accessible because
+                    they have been encrypted. Maybe you are busy looking for a way to recover your files, but do not
+                    waste your time. Nobody can recover your files without our decryption service.</p>
+
+                <h2 data-i18n="can_i_recover_title">Can I Recover My Files?</h2>
+                <p data-i18n="can_i_recover_p1">Sure. We guarantee that you can recover all your files safely and
+                    easily. But you have not so enough
+                    time.</p>
+                <p data-i18n="can_i_recover_p2">You can decrypt some of your files for free. Try now by clicking
+                    &lt;Decrypt&gt;.</p>
+                <p data-i18n="can_i_recover_p3">But if you want to decrypt all your files, you need to pay.</p>
+                <p data-i18n="can_i_recover_p4">You only have 3 days to submit the payment. After that the price will be
+                    doubled.<br>Also, if you
+                    don't pay in 7 days, you won't be able to recover your files forever.<br>We will have free events
+                    for users who are so poor that they couldn't pay in 6 months.</p>
+
+                <h2 data-i18n="how_do_i_pay_title">How Do I Pay?</h2>
+                <p data-i18n="how_do_i_pay_p1">Payment is accepted in Bitcoin only. For more information, click
+                    &lt;About bitcoin&gt;.</p>
+                <p data-i18n="how_do_i_pay_p2">Please check the current price of Bitcoin and buy some bitcoins. For more
+                    information, click &lt;How
+                    to buy bitcoins&gt;.</p>
+                <p data-i18n="how_do_i_pay_p3">And send the correct amount to the address specified in this window.</p>
+                <p data-i18n="how_do_i_pay_p4">After your payment, click &lt;Check Payment&gt;. Best time to check:
+                    9:00am - 11:00am GMT from Monday
+                    to Friday.</p>
+            </div>
+
+            <div class="payment-section">
+                <div class="payment-logo" style="padding: 2px;">
+                    <img src="bitcoin.jpg" alt="Bitcoin Accepted Here" style="max-width: 140px; max-height: 45px; display: block;     border-radius: 10px;
+">
+                </div>
+                <div class="payment-address-area">
+                    <div class="send-amount" data-i18n="send_amount">Send $300 worth of bitcoin to this address:</div>
+                    <div class="address-input-container">
+                        <input type="text" value="bc1qqdyyvc8vl0j3a6te5cne8egheer5xvnx4q5y2x" readonly>
+                        <button class="copy-btn" data-i18n="copy">Copy</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn" data-i18n="check_payment">Check Payment</button>
+                <button class="action-btn" data-i18n="decrypt">Decrypt</button>
+            </div>
+        </div>
+    </div>
+    <div id="custom-alert-overlay"
+        style="display: none; position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center;">
+        <div
+            style="background: white; border: 2px solid #555; padding: 20px; width: 420px; color: black; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 0 15px rgba(0,0,0,1);">
+            <div style="display: flex; gap: 15px; align-items: center;">
+                <img src="bitcoin.png" alt="" style="width:30px; height:30px; border-radius: 50%;">
+                <div style="font-weight: bold; font-size: 18px; color: #8B0000;" data-i18n="pay_to_close">Pay to close!
+                </div>
+            </div>
+            <div style="font-size: 14px;" data-i18n="alert_message">
+                To regain access to the data on your computer, please send Bitcoin to the following address: </div>
+            <div style="display: flex; gap: 5px;">
+                <input type="text" value="12t9YDPgwueZ9NyMgw519p7AA8isjr6SMw" readonly
+                    style="flex:1; padding: 8px; border: 1px solid #999; font-family: inherit;" id="alert-address">
+                <button
+                    onclick="document.getElementById('alert-address').select(); document.execCommand('copy'); alert('Adres başarıyla kopyalandı!');"
+                    style="padding: 0 15px; cursor: pointer; border: 1px solid #999; font-weight: bold;">Copy</button>
+            </div>
+            <div style="text-align: right;">
+                <button onclick="document.getElementById('custom-alert-overlay').style.display='none';"
+                    style="padding: 6px 20px; cursor: pointer; border: 1px solid #999;">OK</button>
+            </div>
+        </div>
+    </div>
+    <div id="custom-alert-overlay"
+        style="display: none; position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center;">
+        <div
+            style="background: white; border: 2px solid #555; padding: 20px; width: 420px; color: black; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 0 15px rgba(0,0,0,1);">
+            <div style="display: flex; gap: 15px; align-items: center;">
+                <img src="bitcoin.png" alt="" style="width:30px; height:30px; border-radius: 50%;">
+                <div style="font-weight: bold; font-size: 18px; color: #8B0000;" data-i18n="pay_to_close">Pay to close!
+                </div>
+            </div>
+            <div style="font-size: 14px;" data-i18n="alert_message">
+                To regain access to the data on your computer, please send Bitcoin to the following address: </div>
+            <div style="display: flex; gap: 5px;">
+                <input type="text" value="12t9YDPgwueZ9NyMgw519p7AA8isjr6SMw" readonly
+                    style="flex:1; padding: 8px; border: 1px solid #999; font-family: inherit;" id="alert-address">
+                <button
+                    onclick="document.getElementById('alert-address').select(); document.execCommand('copy'); document.getElementById('copy-alert-overlay').style.display='flex';"
+                    style="padding: 0 15px; cursor: pointer; border: 1px solid #999; font-weight: bold;">Copy</button>
+            </div>
+            <div style="text-align: right;">
+                <button onclick="document.getElementById('custom-alert-overlay').style.display='none';"
+                    style="padding: 6px 20px; cursor: pointer; border: 1px solid #999;">OK</button>
+            </div>
+        </div>
+    </div>
+    <div id="copy-alert-overlay"
+        style="display: none; position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.7); z-index: 10000; justify-content: center; align-items: center;">
+        <div
+            style="background: white; border: 2px solid #555; padding: 20px; width: 350px; color: black; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 0 15px rgba(0,0,0,1);">
+            <div style="display: flex; gap: 15px; align-items: center;">
+                <div style="font-weight: bold; font-size: 18px; color: #2e7d32;" data-i18n="copy_success_title">Success!
+                </div>
+            </div>
+            <div style="font-size: 14px;" data-i18n="copy_success">
+                Address copied to clipboard!</div>
+            <div style="text-align: right;">
+                <button onclick="document.getElementById('copy-alert-overlay').style.display='none';"
+                    style="padding: 6px 20px; cursor: pointer; border: 1px solid #999;">OK</button>
+            </div>
+        </div>
+    </div>
+    <div id="decry-chat-overlay" style="display: none; position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.7); z-index: 20000; justify-content: center; align-items: center;">
+        <div style="background: white; border: 2px solid #555; width: 450px; height: 500px; color: black; display: flex; flex-direction: column; box-shadow: 0 0 15px rgba(0,0,0,1);">
+            <div style="background: #A31215; color: white; padding: 10px; font-weight: bold; display: flex; justify-content: space-between; align-items: center;">
+                <span data-i18n="support_chat">Support Chat</span>
+                <button onclick="document.getElementById('decry-chat-overlay').style.display='none';" style="background: transparent; color: white; border: none; font-size: 16px; cursor: pointer;">X</button>
+            </div>
+            <div id="decry-chat-messages" style="flex: 1; padding: 10px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; background: #f9f9f9;">
+                <!-- Messages go here -->
+            </div>
+            <div style="padding: 10px; border-top: 1px solid #ccc; display: flex; gap: 5px;">
+                <input type="text" id="decry-chat-input" placeholder="Type your message..." style="flex: 1; padding: 8px; border: 1px solid #999;">
+                <button id="decry-send-btn" style="padding: 0 15px; cursor: pointer; border: 1px solid #999; font-weight: bold; background: #eee;">Send</button>
+            </div>
+        </div>
+    </div>
+    <script src="renderer.js"></script>
+</body>
+
+</html>
